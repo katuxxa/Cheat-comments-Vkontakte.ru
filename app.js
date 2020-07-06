@@ -3,7 +3,7 @@ const vk = new VK();
 const request = require('prequest');
 const { updates, snippets } = vk;
 const hd = require('humanize-duration');
-const message = `made by oasis`
+const message = `made by oasis`;
 const rq = require("prequest");
 const fs = require('fs');
 const date = require("datejs");
@@ -25,7 +25,7 @@ setInterval(async () => {
     const oasis = new VK();
      oasis.setOptions({token: `${settings.token}`});
      oasis.api.wall.createComment({ owner_id: `${settings.post_owner}`, post_id: `${settings.post_id}`, message: `${settings.text}`/*, sticker_id: `${settings.sticker_id}`*/ });
-     console.log(`+1 comment added.`)
+     console.log(`[${hours}:${minutes} ${day}.${month}.${year}] +1 comment added.`)
 }, 5000);
 
 console.log(message)
