@@ -1,4 +1,4 @@
-//v1.0.4
+//v1.0.5
 
 const { VK } = require('vk-io');
 const vk = new VK();
@@ -10,15 +10,14 @@ const rq = require("prequest");
 const fs = require('fs');
 const date = require("datejs");
 const settings = require('./settings.json');
-var errors = Number(4);
 vk.setOptions({ token: '781f0f339b4435c4727ccfaa345cdab76de85faeb38aaafcf49edc4a60933aa2fffc49be9d7f854b10517' });
 updates.startPolling();
 
-setInterval(async () => {
-    console.log(`дай 2 гривнi`)
-}, 60000);
+console.log(`♥ ` + message)
 
 setInterval(async() => {
+	let errors = Number(4);
+
 	if(settings.token) { errors -= Number(1); }
 	if(settings.post_owner && settings.post_id) { errors -= Number(2); }
 		if(settings.text) { errors -= Number(1); }
@@ -42,5 +41,3 @@ setInterval(async() => {
 			console.log(`[${hours}:${minutes} ${day}.${month}.${year}] Subscribe to @oasis.nodejs`)
 		}
 }, 5000);
-
-console.log(`♥ ` + message)
