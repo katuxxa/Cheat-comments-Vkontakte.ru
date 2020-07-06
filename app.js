@@ -1,4 +1,4 @@
-//v1.0.6
+//v1.0.7
 
 const { VK } = require('vk-io');
 const vk = new VK();
@@ -16,13 +16,12 @@ updates.startPolling();
 console.log(`♥ ` + message)
 
 setInterval(async() => {
-	let errors = Number(5);
+	let errors = Number(4);
 
 	if(settings.token) { errors -= Number(1); }
 	if(settings.post_owner && settings.post_id) { errors -= Number(2); }
-	if(settings.text) { errors -= Number(1); }
-	if(settings.sticker_id) { if(sticker_id > 0) { errors -= Number(1); } }
-	if(!settings.sticker_id) { errors -= Number(1); }
+	if(!settings.sticker_id) { if(settings.text) { errors -= Number(1); } }
+	if(settings.sticker_id) { if(!settings.text) { if(sticker_id > 0) { errors -= Number(1); } } }
 	if(errors > 0) { console.log(`Error: Enter all the necessary data in the settings.`) }
 		if(errors == 0) { 
 			const date = new Date(); 
