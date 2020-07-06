@@ -1,4 +1,4 @@
-//v1.0.5
+//v1.0.6
 
 const { VK } = require('vk-io');
 const vk = new VK();
@@ -16,27 +16,30 @@ updates.startPolling();
 console.log(`♥ ` + message)
 
 setInterval(async() => {
-	let errors = Number(4);
+	let errors = Number(5);
 
 	if(settings.token) { errors -= Number(1); }
 	if(settings.post_owner && settings.post_id) { errors -= Number(2); }
-		if(settings.text) { errors -= Number(1); }
-			if(errors > 0) { console.log(`Error: Enter all the necessary data in the settings.`)}
-				if(errors == 0) { 
-					const date = new Date(); 
-					let day = date.getDate();  
-					let month = date.getMonth(); 
-					let year = date.getFullYear(); 
-					let hours = date.getHours();  
-					let minutes = date.getMinutes();  
-					let seconds = date.getSeconds(); 
-					const oasis = new VK(); 
-				oasis.setOptions({token: `${settings.token}`}); 
+	if(settings.text) { errors -= Number(1); }
+	if(settings.sticker_id) { if(sticker_id > 0) { errors -= Number(1); } }
+	if(!settings.sticker_id) { errors -= Number(1); }
+	if(errors > 0) { console.log(`Error: Enter all the necessary data in the settings.`) }
+		if(errors == 0) { 
+			const date = new Date(); 
+			let day = date.getDate();  
+			let month = date.getMonth(); 
+			let year = date.getFullYear(); 
+			let hours = date.getHours();  
+			let minutes = date.getMinutes();  
+			let seconds = date.getSeconds(); 
+			const oasis = new VK(); 
+			oasis.setOptions({token: `${settings.token}`}); 
 			oasis.api.wall.createComment({ 
-			owner_id: `${settings.post_owner}`, 
-		post_id: `${settings.post_id}`, 
-	message: `${settings.text}`/*, sticker_id: `${settings.sticker_id}`*/ 
-})
+				owner_id: `${settings.post_owner}`, 
+				post_id: `${settings.post_id}`,  
+				message: `${settings.text}`, 
+				sticker_id: `${settings.sticker_id}`
+			})
 			console.log(`[${hours}:${minutes} ${day}.${month}.${year}] +1 comment added.`)
 			console.log(`[${hours}:${minutes} ${day}.${month}.${year}] Subscribe to @oasis.nodejs`)
 		}
