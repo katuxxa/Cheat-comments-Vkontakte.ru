@@ -1,0 +1,4 @@
+token - Key for vk.api
+post_owner - Id post owner, you can find here
+post_id - Id post
+text - Comment text
