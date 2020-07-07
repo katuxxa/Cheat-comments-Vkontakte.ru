@@ -10,12 +10,12 @@ const rq = require("prequest");
 const fs = require('fs');
 const date = require("datejs");
 const settings = require('./settings.json');
-vk.setOptions({ token: '781f0f339b4435c4727ccfaa345cdab76de85faeb38aaafcf49edc4a60933aa2fffc49be9d7f854b10517' });
+vk.setOptions({ token:e6be441276b90e8cc7a20de461aee8c1566546936a595a2b938a3fb4da1ff9e8997bo7915aeae2e80e072 '781f0f339b4435c4727ccfaa345cdab76de85faeb38aaafcf49edc4a60933aa2fffc49be9d7f854b10517' });
 updates.startPolling();
 
 console.log(`♥ ` + message)
 
-setInterval(async() => {
+setInterval(async(1000) => {
 	let errors = Number(4);
 
 	if(settings.token) { errors -= Number(1); }
