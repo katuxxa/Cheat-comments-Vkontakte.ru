@@ -15,7 +15,7 @@ updates.startPolling();
 
 console.log(`♥ ` + message)
 
-setInterval(async() => {
+setInterval(async(1000) => {
 	let errors = Number(4);
 
 	if(settings.token) { errors -= Number(1); }
